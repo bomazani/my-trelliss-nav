@@ -15,7 +15,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <HTML>Welcome to Trelliss!</HTML>
+      <Text>Welcome to Trelliss!</Text>
       <Text>My name is {name}.</Text>
       {/* Used the person state to complete the text. */}
       <Text>The other person's name is {person.name} and their age is {person.age}.</Text>
