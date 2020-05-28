@@ -17,6 +17,18 @@ export default function App() {
     <View style={styles.container}>
       <Text>Trelliss List Page!</Text>
 
+      {/* Javascript needs to be inside curly braces */}
+      { people.map((item) => {
+        return (
+          <View key={item.key}>
+            {/* Each child in a list should have a unique id# so we added 'key' to the parent View. */}
+            <Text style={styles.item}>
+              {item.name}
+            </Text>
+          </View>
+        )
+      })}
+
     </View>
   );
 }
@@ -25,7 +37,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    paddingTop: 40,
+    paddingHorizontal: 20,
     // alignItems: 'center',
     // justifyContent: 'center',
   },
+  item: {
+    marginTop: 24,
+    padding: 30,
+    backgroundColor: 'lightblue',
+    fontSize: 24,
+  }
 });
