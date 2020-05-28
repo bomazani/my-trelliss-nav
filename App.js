@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 
 export default function App() {
   const [people, setPeople] = useState([
@@ -17,21 +17,19 @@ export default function App() {
     <View style={styles.container}>
       <Text>Trelliss List Page!</Text>
 
-      {/* Javascript needs to be inside curly braces */}
-      { people.map((item) => {
-        return (
-          <View key={item.key}>
-            {/* Each child in a list should have a unique id# so we added 'key' to the parent View. */}
-            <Text style={styles.item}>
-              {item.name}
-            </Text>
-          </View>
-        )
-      })}
-
-    </View>
+      <ScrollView>
+        { people.map(item => (
+            <View key={item.key}>
+              <Text style={styles.item}>
+                {item.name}
+              </Text>
+            </View>
+        ))}
+      </ScrollView> 
+    </View> 
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -43,9 +41,9 @@ const styles = StyleSheet.create({
     // justifyContent: 'center',
   },
   item: {
-    marginTop: 24,
+    marginTop: 35,
     padding: 30,
     backgroundColor: 'lightblue',
-    fontSize: 24,
+    fontSize: 30,
   }
 });
