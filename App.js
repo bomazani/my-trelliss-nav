@@ -21,6 +21,7 @@ export default function App() {
       {/* FlatList automatically looks for a 'key', */}
       {/* so we don't need to specify one, like in ScrollView. */}
       <FlatList
+        numColumns={ 2 }
         keyExtractor={(item) => item.id}
         data={people}
         renderItem={({ item }) => (
@@ -56,6 +57,7 @@ const styles = StyleSheet.create({
   },
   item: {
     marginTop: 35,
+    marginHorizontal: 10,
     padding: 30,
     backgroundColor: 'lightblue',
     fontSize: 30,
