@@ -13,6 +13,10 @@ export default function App() {
     { name: 'Bowser', id: '7'},
   ]);
 
+  const pressHandler = (id) => {
+    console.log(id);
+  }
+
   return (
     <View style={styles.container}>
       <Text>Trelliss Touchable Components Page!</Text>
@@ -22,7 +26,8 @@ export default function App() {
         keyExtractor={(item) => item.id}
         data={people}
         renderItem={({ item }) => (
-          <TouchableOpacity>
+          // TouchableOpacity can have its own style prop.
+          <TouchableOpacity onPress={() => pressHandler(item.id)}>
             <Text style={styles.item}>
               {item.name}
             </Text>
