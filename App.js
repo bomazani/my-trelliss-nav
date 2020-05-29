@@ -21,7 +21,7 @@ export default function App() {
       {/* FlatList automatically looks for a 'key', */}
       {/* so we don't need to specify one, like in ScrollView. */}
       <FlatList
-        // keyExtractor={(item) = item.id }
+        keyExtractor={(item) => item.id}
         data={people}
         renderItem={({ item }) => (
           <Text style={styles.item}>
