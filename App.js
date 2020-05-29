@@ -17,9 +17,6 @@ export default function App() {
     <View style={styles.container}>
       <Text>Trelliss List Page!</Text>
 
-      {/* FlatList renders items as you scroll down, good for performance. */}
-      {/* FlatList automatically looks for a 'key', */}
-      {/* so we don't need to specify one, like in ScrollView. */}
       <FlatList
         numColumns={ 2 }
         keyExtractor={(item) => item.id}
@@ -31,16 +28,6 @@ export default function App() {
         )}
       />
 
-      {/* ScrollView renders all items at once. */}
-      {/* <ScrollView>
-        { people.map(item => (
-            <View key={item.key}>
-              <Text style={styles.item}>
-                {item.name}
-              </Text>
-            </View>
-        ))}
-      </ScrollView>  */}
     </View> 
   );
 }
@@ -52,8 +39,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     paddingTop: 40,
     paddingHorizontal: 20,
-    // alignItems: 'center',
-    // justifyContent: 'center',
   },
   item: {
     marginTop: 35,
