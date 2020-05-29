@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
 
 export default function App() {
   const [people, setPeople] = useState([
@@ -15,16 +15,18 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text>Trelliss List Page!</Text>
+      <Text>Trelliss Touchable Components Page!</Text>
 
       <FlatList
         numColumns={ 2 }
         keyExtractor={(item) => item.id}
         data={people}
         renderItem={({ item }) => (
-          <Text style={styles.item}>
-            {item.name}
-          </Text>
+          <TouchableOpacity>
+            <Text style={styles.item}>
+              {item.name}
+            </Text>
+          </TouchableOpacity>
         )}
       />
 
