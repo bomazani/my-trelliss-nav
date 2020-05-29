@@ -1,23 +1,38 @@
 
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
 
 export default function App() {
   const [people, setPeople] = useState([
-    { name: 'Bob', key: '1'},
-    { name: 'Yoshi', key: '2'},
-    { name: 'Mario', key: '3'},
-    { name: 'Luigi', key: '4'},
-    { name: 'Peach', key: '5'},
-    { name: 'Toad', key: '6'},
-    { name: 'Bowser', key: '7'},
+    { name: 'Bob', id: '1'},
+    { name: 'Yoshi', id: '2'},
+    { name: 'Mario', id: '3'},
+    { name: 'Luigi', id: '4'},
+    { name: 'Peach', id: '5'},
+    { name: 'Toad', id: '6'},
+    { name: 'Bowser', id: '7'},
   ]);
 
   return (
     <View style={styles.container}>
       <Text>Trelliss List Page!</Text>
 
-      <ScrollView>
+      {/* FlatList renders items as you scroll down, good for performance. */}
+      {/* FlatList automatically looks for a 'key', */}
+      {/* so we don't need to specify one, like in ScrollView. */}
+      <FlatList
+        // if id exists instead of key use keyExtractor as below.
+        keyExtractor={(item) = item.id }
+        data={people}
+        renderItem={({ item }) => (
+          <Text style={styles.item}>
+            {item.name}
+          </Text>
+        )}
+      />
+
+      {/* ScrollView renders all items at once. */}
+      {/* <ScrollView>
         { people.map(item => (
             <View key={item.key}>
               <Text style={styles.item}>
@@ -25,7 +40,7 @@ export default function App() {
               </Text>
             </View>
         ))}
-      </ScrollView> 
+      </ScrollView>  */}
     </View> 
   );
 }
