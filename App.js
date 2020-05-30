@@ -1,25 +1,29 @@
-
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
+import Header from './components/header';
 
 export default function App() {
-  const [name, setName] = useState('Bob');
-  const [person, setPerson] = useState({ name: 'Mario', age: 40});
-
-  const clickHandler = () => {
-    setName('Mason');
-    setPerson({name: 'Bob', age: 54})
-  }
+  const [todos, setTodos] = useState([
+    { text: 'Item 1', key: '1' },
+    { text: 'Item 2', key: '2' },
+    { text: 'Item 3', key: '3' },
+  ]);
 
   return (
     <View style={styles.container}>
-      <Text>Welcome to Trelliss!</Text>
-      <Text>My name is {name}.</Text>
-      <Text>The other person's name is {person.name} and their age is {person.age}.</Text>
-      <View style={styles.buttonContainer}>
-        <Button title='update state' onPress={clickHandler} />
+      <Header />
+      <View style={styles.content}>
+        {/* todo form */}
+        <View style={styles.list}>
+          <FlatList
+            data={todos}
+            renderItem={({ item }) => (
+              <Text>{item.text}</Text>
+            )}
+          />
+        </View>
       </View>
-    </View>
+    </View> 
   );
 }
 
@@ -27,11 +31,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
-  buttonContainer: {
-    marginTop: 20,
-    backgroundColor: 'grey',
-  }
+
+  content: {
+    padding: 40,
+  },
+
+  content: {
+    marginTop: 40,
+    marginLeft: 20,
+  },
+
+  
 });
