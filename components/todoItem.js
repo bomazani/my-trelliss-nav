@@ -4,7 +4,7 @@ import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 export default function TodoItem({ item }) {
     return (
        <TouchableOpacity>
-           <Text style={style.text}>
+           <Text style={styles.text}>
                {item.text}
            </Text>
        </TouchableOpacity>
