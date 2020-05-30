@@ -11,6 +11,12 @@ export default function App() {
     { text: 'Item 3', key: '3' },
   ]);
 
+  const pressHandler = (key) => {
+    setTodos((prevTodos) => {
+      return prevTodos.filter(todo => todo.key !== key)
+    })
+  }
+
   return (
     <View style={styles.container}>
       <Header />
@@ -20,7 +26,9 @@ export default function App() {
           <FlatList
             data={todos}
             renderItem={({ item }) => (
-              < TodoItem item={item} />
+              // item and presshandler are props passed into TodoItem
+              // so they can be used in todoItems.js
+              < TodoItem item={item} pressHandler={pressHandler} />
             )}
           />
         </View>
