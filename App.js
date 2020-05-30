@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
+import Header from './components/header';
 
 export default function App() {
   const [todos, setTodos] = useState([
@@ -10,9 +11,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      {/* header */}
-      {/* <Text style={styles.title}>Trelliss ToDo Page!</Text> */}
-
+      <Header />
       <View style={styles.content}>
         {/* todo form */}
         <View style={styles.list}>
@@ -33,9 +32,15 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-  title: {
-    flex: 1,
+
+  content: {
+    padding: 40,
+  },
+
+  content: {
     marginTop: 40,
-  }
+    marginLeft: 20,
+  },
+
   
 });
