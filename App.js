@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Trelliss ToDo Page!</Text>
+      <Text style={styles.title}>Trelliss ToDo Page!</Text>
     </View> 
   );
 }
@@ -14,5 +14,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
+  title: {
+    flex: 1,
+    marginTop: 40,
+  }
   
 });
