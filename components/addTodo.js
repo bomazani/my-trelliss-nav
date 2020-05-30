@@ -16,9 +16,10 @@ export default function AddTodo() {
             <TextInput
                 style={styles.input}
                 placeholder='New ToDo Item'
-                // onChange automatically grabs the value (val)
+                // onChange automatically grabs the value (val) for use in changeHandler function.
                 onChangeText={changeHandler}
             />
+            <Button color='green' onPress={() => console.log(text)} title='add todo' />
         </View>
     )
 }
@@ -30,7 +31,7 @@ const styles = StyleSheet.create({
         paddingVertical: 6,
         borderBottomWidth: 1,
         borderBottomColor: '#ddd',
-    }
-})
+    },
+});
 
 
