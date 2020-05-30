@@ -17,11 +17,24 @@ export default function App() {
     })
   }
 
+  const submitHandler = (text) => {
+    setTodos((prevTodos) => {
+      // Return a new array that includes the old array (...prevTodos)
+      // plus a new object with the new text and a unique id.
+      return [
+        // Math.random() is not the best option, possible dupe id#s.
+        { text: text, key: Math.random().toString() },
+        ...prevTodos
+      ]
+    })
+  }
+
   return (
     <View style={styles.container}>
       <Header />
       <View style={styles.content}>
-        <AddTodo />
+        {/* passing submitHandler as a prop to AddTodo */}
+        <AddTodo submitHandler={submitHandler} />
         <View style={styles.list}>
           <FlatList
             data={todos}

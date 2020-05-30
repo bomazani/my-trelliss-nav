@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 
-export default function AddTodo() {
+export default function AddTodo({ submitHandler }) {
     // Creates a piece of state that tracks what user types
     const [text, setText] = useState('');
 
@@ -19,7 +19,7 @@ export default function AddTodo() {
                 // onChange automatically grabs the value (val) for use in changeHandler function.
                 onChangeText={changeHandler}
             />
-            <Button color='green' onPress={() => console.log(text)} title='add todo' />
+            <Button color='green' onPress={() => submitHandler(text)} title='add todo' />
         </View>
     )
 }
