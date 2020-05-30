@@ -11,17 +11,17 @@ export default function Header() {
 
 const styles = StyleSheet.create({
     header: {
-        height: 80,
+        height: 100,
         paddingTop: 38,
         paddingLeft: 20,
         backgroundColor: 'coral',
     },
 
-    Title: {
+    title: {
         textAlign: 'center',
         color: '#fff',
         fontSize: 20,
         fontWeight: 'bold',
-        padding: 20,
+        padding: 15,
     }
 });
