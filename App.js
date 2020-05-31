@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View, FlatList, Alert } from 'react-native';
 import Header from './components/header';
 import TodoItem from './components/todoItem';
 import AddTodo from './components/addTodo';
@@ -18,15 +18,22 @@ export default function App() {
   }
 
   const submitHandler = (text) => {
-    setTodos((prevTodos) => {
-      // Return a new array that includes the old array (...prevTodos)
-      // plus a new object with the new text and a unique id.
-      return [
-        // Math.random() is not the best option, possible dupe id#s.
-        { text: text, key: Math.random().toString() },
-        ...prevTodos
-      ]
-    })
+
+    if(texlt.length > 3){
+      setTodos((prevTodos) => {
+        // Return a new array that includes the old array (...prevTodos)
+        // plus a new object with the new text and a unique id.
+        return [
+          // Math.random() is not the best option, possible dupe id#s.
+          { text: text, key: Math.random().toString() },
+          ...prevTodos
+        ];
+      });
+    } else {
+      Alert.alert('OOPS!', 'Todos must be over 3 chars long', [
+        {text: 'Understood', onPress: () => console.log('alert closed')}
+      ])
+    }
   }
 
   return (
