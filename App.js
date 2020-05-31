@@ -65,10 +65,13 @@ const styles = StyleSheet.create({
   },
 
   content: {
+    flex: 1,
     padding: 40,
+    backgroundColor: 'beige',
   },
 
   list: {
+    flex: 1,
     marginTop: 40,
     marginLeft: 20,
   },
