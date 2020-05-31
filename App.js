@@ -19,7 +19,7 @@ export default function App() {
 
   const submitHandler = (text) => {
 
-    if(texlt.length > 3){
+    if(text.length > 3){
       setTodos((prevTodos) => {
         // Return a new array that includes the old array (...prevTodos)
         // plus a new object with the new text and a unique id.
