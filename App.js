@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, FlatList, Alert } from 'react-native';
+import { StyleSheet, Text, View, FlatList, Alert, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import Header from './components/header';
 import TodoItem from './components/todoItem';
 import AddTodo from './components/addTodo';
@@ -37,23 +37,27 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
-      <Header />
-      <View style={styles.content}>
-        {/* passing submitHandler as a prop to AddTodo */}
-        <AddTodo submitHandler={submitHandler} />
-        <View style={styles.list}>
-          <FlatList
-            data={todos}
-            renderItem={({ item }) => (
-              // item and presshandler are props passed into TodoItem
-              // so they can be used in todoItems.js
-              < TodoItem item={item} pressHandler={pressHandler} />
-            )}
-          />
+    <TouchableWithoutFeedback onPress={() => {
+      console.log('dismissed keyboard')
+    }}>
+      <View style={styles.container}>
+        <Header />
+        <View style={styles.content}>
+          {/* passing submitHandler as a prop to AddTodo */}
+          <AddTodo submitHandler={submitHandler} />
+          <View style={styles.list}>
+            <FlatList
+              data={todos}
+              renderItem={({ item }) => (
+                // item and presshandler are props passed into TodoItem
+                // so they can be used in todoItems.js
+                < TodoItem item={item} pressHandler={pressHandler} />
+              )}
+            />
+          </View>
         </View>
-      </View>
-    </View> 
+      </View> 
+    </TouchableWithoutFeedback>
   );
 }
 
