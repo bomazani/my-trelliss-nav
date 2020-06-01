@@ -11,6 +11,11 @@ export default function AddTodo({ submitHandler }) {
         setText(val);
     }
 
+    const pressHandler = () => {
+        submitHandler(text);
+        setText('');
+    }
+
     return(
         <View>
             <TextInput
@@ -18,8 +23,9 @@ export default function AddTodo({ submitHandler }) {
                 placeholder='New ToDo Item'
                 // onChange automatically grabs the value (val) for use in changeHandler function.
                 onChangeText={changeHandler}
+                value={text}
             />
-            <Button color='green' onPress={() => submitHandler(text)} title='add todo' />
+            <Button color='green' onPress={ pressHandler } title='add todo' />
         </View>
     )
 }
