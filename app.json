@@ -11,7 +11,7 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/TrellissBackground.png",
+      "image": "./assets/TrellissTransparentLogo.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
