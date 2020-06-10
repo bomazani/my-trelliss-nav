@@ -25,5 +25,10 @@
     "@babel/core": "^7.8.6",
     "babel-preset-expo": "~8.1.0"
   },
-  "private": true
+  "private": true,
+  "name": "my-trelliss-nav",
+  "version": "1.0.0",
+  "repository": "https://github.com/bomazani/my-trelliss-nav.git",
+  "author": "Bob Hunt <bob.hunt.email@gmail.com>",
+  "license": "MIT"
 }
